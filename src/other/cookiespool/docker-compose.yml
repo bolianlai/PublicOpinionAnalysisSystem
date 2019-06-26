@@ -1,0 +1,22 @@
+version: '3'
+services:  
+  cookiespool:
+    image: bolianlai/cookiespool:latest
+    container_name: cookiespool
+    ports:
+      - 5000:5000
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost']
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+    dns:
+      - 8.8.8.8
+      - 114.114.114.114
+    volumes:
+      - ./account:/app/account
+  
+networks: 
+  default:
+    external:
+      name: bysj_network

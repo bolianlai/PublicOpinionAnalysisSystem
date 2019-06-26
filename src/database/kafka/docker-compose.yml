@@ -1,0 +1,88 @@
+version: '3'
+services:
+  zookeeper:
+    image: confluent/zookeeper
+    hostname: zookeeper
+    container_name: zookeeper
+    ports:
+     - 2281:2181
+  kafka:
+    image: bolianlai/bysj_kafka_2019:latest
+    hostname: kafka
+    container_name: kafka
+    ports:
+      - 9091:9091
+    environment:
+      KAFKA_MESSAGE_MAX_BYTES: 4194304
+      KAFKA_FETCH_MESSAGE_MAX_BYTES: 4194304
+      KAFKA_DELETE_TOPIC_ENABLE: 'true'
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: INTERNAL://0.0.0.0:9094,EXTERNAL://0.0.0.0:9091
+      KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka:9094, EXTERNAL://localhost:9091
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT, EXTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_JMX_OPTS: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=kafka -Dcom.sun.management.jmxremote.rmi.port=1099"
+      JMX_PORT: 1099
+      JVM_XMS: "256M"
+      JVM_XMX: "512M"
+      # KAFKA_LOG_ROLL_HOURS: 1
+      # KAFKA_LOG_RETENTION_HOURS: 2
+      # KAFKA_LOG_SEGMENT_DELETE_DELAY_MS: 0
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  # kafka2:
+  #   image: bolianlai/bysj_kafka_2019:latest
+  #   hostname: kafka2
+  #   container_name: kafka2
+  #   ports:
+  #     - 9092:9092
+  #   environment:
+  #     KAFKA_MESSAGE_MAX_BYTES: 4194304
+  #     KAFKA_FETCH_MESSAGE_MAX_BYTES: 4194304
+  #     KAFKA_DELETE_TOPIC_ENABLE: 'true'
+  #     KAFKA_BROKER_ID: 2
+  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  #     KAFKA_LISTENERS: INTERNAL://0.0.0.0:9094,EXTERNAL://0.0.0.0:9092
+  #     KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka2:9094, EXTERNAL://localhost:9092
+  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT, EXTERNAL:PLAINTEXT
+  #     KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+  #     KAFKA_JMX_OPTS: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=kafka2 -Dcom.sun.management.jmxremote.rmi.port=1099"
+  #     JMX_PORT: 1099
+  #     JVM_XMS: "256M"
+  #     JVM_XMX: "512M"
+  #     # KAFKA_LOG_ROLL_HOURS: 1
+  #     # KAFKA_LOG_RETENTION_HOURS: 2
+  #     # KAFKA_LOG_SEGMENT_DELETE_DELAY_MS: 0
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+  # kafka3:
+  #   image: bolianlai/bysj_kafka_2019:latest
+  #   hostname: kafka3
+  #   container_name: kafka3
+  #   ports:
+  #     - 9093:9093
+  #   environment:
+  #     KAFKA_MESSAGE_MAX_BYTES: 4194304
+  #     KAFKA_FETCH_MESSAGE_MAX_BYTES: 4194304
+  #     KAFKA_DELETE_TOPIC_ENABLE: 'true'
+  #     KAFKA_BROKER_ID: 3
+  #     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+  #     KAFKA_LISTENERS: INTERNAL://0.0.0.0:9094,EXTERNAL://0.0.0.0:9093
+  #     KAFKA_ADVERTISED_LISTENERS: INTERNAL://kafka3:9094, EXTERNAL://localhost:9093
+  #     KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT, EXTERNAL:PLAINTEXT
+  #     KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
+  #     KAFKA_JMX_OPTS: "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=kafka3 -Dcom.sun.management.jmxremote.rmi.port=1099"
+  #     JMX_PORT: 1099
+  #     JVM_XMS: "256M"
+  #     JVM_XMX: "512M"
+  #     # KAFKA_LOG_ROLL_HOURS: 1
+  #     # KAFKA_LOG_RETENTION_HOURS: 2
+  #     # KAFKA_LOG_SEGMENT_DELETE_DELAY_MS: 0
+  #   volumes:
+  #     - /var/run/docker.sock:/var/run/docker.sock
+
+networks: 
+  default:
+    external:
+      name: bysj_network

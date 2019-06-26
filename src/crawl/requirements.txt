@@ -1,0 +1,6 @@
+scrapy
+requests
+colorlog
+confluent-kafka
+scrapy-redis
+python-dotenv

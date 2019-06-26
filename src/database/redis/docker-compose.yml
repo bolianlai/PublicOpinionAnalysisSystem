@@ -1,0 +1,13 @@
+version: '3'
+services:
+  redis:
+    image: 'bitnami/redis:5.0'
+    container_name: redis
+    command: redis-server --requirepass yourpassword
+    ports:
+      - 6379:6379
+
+networks: 
+  default:
+    external:
+      name: bysj_network

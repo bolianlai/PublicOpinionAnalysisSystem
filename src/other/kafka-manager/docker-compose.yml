@@ -1,0 +1,17 @@
+version: '3'
+services:
+  kafka_manager:
+    image: bolianlai/kafka_manager_2019:latest
+    hostname: kafka_manager
+    container_name: kafka_manager
+    ports:
+      - "9999:9000"
+    environment:
+      ZK_HOSTS: zookeeper:2181
+      APPLICATION_SECRET: letmein
+      KM_ARGS: -Djava.net.preferIPv4Stack=true
+
+networks: 
+  default:
+    external:
+      name: bysj_network

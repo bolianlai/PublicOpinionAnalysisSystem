@@ -1,0 +1,10 @@
+*.pyc
+
+env/
+
+logs/
+
+db.sqlite3
+
+data/
+clean/

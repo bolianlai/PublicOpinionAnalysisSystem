@@ -1,0 +1,167 @@
+{% extends 'base.html' %} {% load static %} {% block content %} {% load static %}
+
+<!-- /# row -->
+<section id="main-content">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-success border-success"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">舆情数量</div>
+                        <div class="stat-digit">{{ lyricalcount }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-primary border-primary"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">正面数量</div>
+                        <div class="stat-digit">{{ positive }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-pink border-pink"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">中立数量</div>
+                        <div class="stat-digit">{{ neutral }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-danger border-danger"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">反面数量</div>
+                        <div class="stat-digit">{{ negative }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+
+        <!-- /# column -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title pr">
+                    <h4>全部舆情</h4>
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table student-data-table m-t-20">
+                            <thead>
+                                <tr>
+                                    <th>舆情名称</th>
+                                    <th>舆情摘要</th>
+                                    <th>舆情链接</th>
+                                    <th>舆情来源</th>
+                                    <th>媒体类型</th>
+                                    <th>舆情属性</th>
+                                    <th>发表时间</th>
+                                    <th>采集时间</th>
+                                    <th>关联度</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for ds in datasummary %}
+                                <tr>
+                                    <td>{{ ds.title }}</td>
+                                    <td >{{ ds.intro |slice:"0:30" }}</td>
+                                    <td>{{ ds.content_url }}</td>
+                                    <td>{{ ds.content_from }} </td>
+                                    <td>{{ ds.media_type }}</td>
+                                    <td>{% if ds.lyric_attribute == '1' %} <span class="badge badge-success">正面 </span>{% elif ds.lyric_attribute == '0' %} <span class="badge badge-primary">中立 </span>{% elif ds.lyric_attribute == '-1' %} <span class="badge badge-danger">反面 </span>{% else%} - {% endif %}</td>
+                                    <td>{{ ds.publish_time |date:"Y-m-d H:i:s" }}</td>
+                                    <td>{{ ds.update_time |date:"Y-m-d H:i:s" }} </td>
+                                    <td>{{ ds.correlation }}</td>
+                                    <td>{{ ds.remark |default_if_none:"-"}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /# column -->
+
+
+        <!-- Modal -->
+        <div aria-hidden="true" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content text-left">
+                
+                    <div class="modal-header">
+                                            {% comment %} <h4 class="modal-title">选择响应的操作</h4> {% endcomment %}
+
+                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button"><i class="ti-close"></i></button>
+                    </div>
+                    <div class="modal-body">
+                     <button type="button" class="btn btn-default m-b-10">Default</button>
+                      <button type="button" class="btn btn-default m-b-10">Default</button>
+                        {% comment %} <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">To</label>
+                                <div class="col-lg-10">
+                                    <input type="text" placeholder="" id="inputEmail1" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Cc / Bcc</label>
+                                <div class="col-lg-10">
+                                    <input type="text" placeholder="" id="cc" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Subject</label>
+                                <div class="col-lg-10">
+                                    <input type="text" placeholder="" id="inputPassword1" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-2 control-label">Message</label>
+                                <div class="col-lg-10">
+                                    <textarea rows="10" cols="30" class="form-control" id="texarea1" name="texarea"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-offset-2 col-lg-10">
+                                    <span class="btn green fileinput-button"><i class="fa fa-plus fa fa-white"></i>
+																	<span>Attachment</span>
+                                    <input type="file" name="files[]" multiple="">
+                                    </span>
+                                    <button class="btn btn-primary" type="submit">Send</button>
+                                </div>
+                            </div>
+                        </form> {% endcomment %}
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+    function operator(lyrical_id) {
+        console.log({{lyrical_id.id}});
+    }
+</script>
+{% endblock%}

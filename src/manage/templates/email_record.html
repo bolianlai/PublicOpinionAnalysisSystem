@@ -1,0 +1,91 @@
+{% extends 'base.html' %} {% load static %} {% block content %} {% load static %}
+
+<!-- /# row -->
+<section id="main-content">
+    {% comment %} <div class="row">
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-success border-success"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">上报数量 </div>
+                        <div class="stat-digit">{{ reportcount|default:"0" }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-primary border-primary"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">正面数量</div>
+                        <div class="stat-digit">{{ positive }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-pink border-pink"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">中立数量</div>
+                        <div class="stat-digit">{{ neutral }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="stat-widget-one">
+                    <div class="stat-icon dib"><i class="ti-comment-alt color-danger border-danger"></i></div>
+                    <div class="stat-content dib">
+                        <div class="stat-text">反面数量</div>
+                        <div class="stat-digit">{{ negative }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> {% endcomment %}
+    <div class="row">
+
+        <!-- /# column -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-title pr">
+                    <h4>邮件记录</h4>
+
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table student-data-table m-t-20">
+                            <thead>
+                                <tr>
+                                    <th>舆情名称</th>
+                                    <th>舆情摘要</th>
+                                    <th>通知时间</th>
+                                    <th>通知部门</th>
+                                    <th>备注</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for er in emailrecord %}
+                                <tr>
+                                    <td>{{ er.title }}</td>
+                                    <td>{{ er.intro |slice:"0:30" }}</td>
+                                    <td>{{ er.report_time |date:"Y-m-d H:i:s" }}</td>
+                                    <td>{{ er.notices }} </td>
+                                    <td>{{ er.remark |default_if_none:"-"}}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /# column -->
+    </div>
+</section>
+{% endblock %}

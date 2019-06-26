@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>登录-网络舆情监控分析系统</title>
+    <link rel="stylesheet" media="screen" href="{% static 'css/dmaku.main.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="referrer" content="origin">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="top_wrapper">
+            <div class="container">
+                <div class="col-sm-12 header"></div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 login_content_wrapper">
+                    <div class="content_wrapper">
+                        {% if message %} 
+                            <div class="alert alert-danger">
+                                <font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">
+                                        {{ message }}
+                                    </font>
+                                </font>
+                            </div>
+                            {% endif %}
+                        <h1 class="title">登录-网络舆情监控分析系统</h1>
+                        <form class="form-login" method="post">
+                            <div class="form-group">
+                                <label for="username">用户名</label>
+                                <input autofocus="autofocus" class="form-control" value="" name="username" id="username" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">密码</label>
+                                <input autocomplete="off" class="form-control" type="password" name="password" id="password" />
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 text-right">
+                                        <input class="btn btn-default btn-success" value="登 入" type="submit" />
+                                    </div>
+                                </div>
+                            </div>
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                    <p class="copyright">&copy; 2019 网络舆情监控分析系统</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
