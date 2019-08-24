@@ -1,15 +1,17 @@
-﻿
-var placeholder = '<span class="placeholder">{0}</span>';
+﻿var placeholder = '<span class="placeholder">{0}</span>';
+
 function selectActiveChatBox(selector) {
     $('#mmc-chat .box').removeClass('active');
     $(selector).addClass('active');
 }
+
 function removeBoxCollapseClass(selector) {
 
     if ($(selector).hasClass('collapsed')) {
         $(selector).removeClass('collapsed');
     }
 }
+
 function messageScrollMoveEnd() {
 
     setTimeout(function () {
@@ -24,13 +26,14 @@ function messageScrollMoveEnd() {
 
 function initializeTooltip() {
     //tooltip
-    $('.tooltipped').tooltip({ delay: 50 });
-    $('.close_tooltip').tooltip({ delay: 50 });
+    $('.tooltipped').tooltip({delay: 50});
+    $('.close_tooltip').tooltip({delay: 50});
 }
 
 function initializeTooltipSiderbarUserList() {
-    $('.user-tooltip').tooltip({ delay: 50 });
+    $('.user-tooltip').tooltip({delay: 50});
 }
+
 function deinitializeTooltipSiderbarUserList() {
     $('.user-tooltip').tooltip('remove');
 }
@@ -38,7 +41,7 @@ function deinitializeTooltipSiderbarUserList() {
 function stickersTab() {
     setTimeout(function () {
         $('.stickers ul.tabs').tabs();
-        $('.stickers ul.tabs').css({ 'height': '55px' });
+        $('.stickers ul.tabs').css({'height': '55px'});
 
     }, 1);
 }
@@ -47,6 +50,7 @@ function hideStickerBox() {
     $('#mmc-chat .box .icons').removeClass('show');
     $('#mmc-chat .box .icons').find('.smiles-set').removeAttr('style');
 }
+
 function hideMinimizedBox() {
 
     if ($('#mmc-chat .boxs .minimized').hasClass('show')) {
@@ -55,6 +59,7 @@ function hideMinimizedBox() {
     }
 
 }
+
 function hasNewMessage(dataId) {
     $('#mmc-chat .chat-box .boxs .box').each(function () {
         if ($(this).data('id') == dataId) {
@@ -62,6 +67,7 @@ function hasNewMessage(dataId) {
         }
     });
 }
+
 function generatePlaceholder() {
     setTimeout(function () {
         $("#mmc-chat .textarea").each(function () {
@@ -69,6 +75,7 @@ function generatePlaceholder() {
         });
     }, 10);
 }
+
 //var messageType = { text: 1, date: 2 }
 //var messageSenderType = { in: 1, out: 2 }
 //var _messageDate = '<div class="date">{0}</div>';
@@ -108,6 +115,7 @@ function sidebar_closed() {
         $('#mmc-chat').removeClass('sidebar-closed');
     }
 }
+
 //string format function -- use 'hello {0}'.format('demo')  -> result : 'hello demo'
 String.prototype.format = String.prototype.f = function () {
     var s = this,
@@ -172,8 +180,7 @@ $(document).on('click', '#mmc-chat .preview-image', function () {
         ratio = originalHeight / originalWidth;
         newWidth = windowWidth * 0.9;
         newHeight = windowWidth * 0.9 * ratio;
-    }
-    else {
+    } else {
         ratio = originalWidth / originalHeight;
         newWidth = (windowHeight * 0.9) * ratio;
         newHeight = windowHeight * 0.9;
@@ -191,7 +198,7 @@ $(document).on('click', '#mmc-chat .preview-image', function () {
 
 
     $('.preview-caption').css({
-        'top': (newHeight )
+        'top': (newHeight)
     });
 
 });

@@ -1,11 +1,11 @@
 version: "3"
-services: 
+services:
   scrapy:
     build: .
     container_name: crawl_weibo
     restart: always
 
-networks: 
+networks:
   default:
     external:
       name: bysj_network

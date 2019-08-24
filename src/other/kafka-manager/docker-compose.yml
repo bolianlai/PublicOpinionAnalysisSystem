@@ -11,7 +11,7 @@ services:
       APPLICATION_SECRET: letmein
       KM_ARGS: -Djava.net.preferIPv4Stack=true
 
-networks: 
+networks:
   default:
     external:
       name: bysj_network

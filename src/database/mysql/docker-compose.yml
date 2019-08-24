@@ -10,7 +10,7 @@ services:
     ports:
       - 3306:3306
 
-networks: 
+networks:
   default:
     external:
       name: bysj_network

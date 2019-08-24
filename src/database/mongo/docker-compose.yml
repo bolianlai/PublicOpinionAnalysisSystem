@@ -12,7 +12,7 @@ services:
     ports:
       - 27017:27017
 
-networks: 
+networks:
   default:
     external:
       name: bysj_network

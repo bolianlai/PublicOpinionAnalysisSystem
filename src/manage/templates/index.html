@@ -33,69 +33,78 @@
 
 <body class="bg-primary">
 
-    <div class="unix-login">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="{% url 'datasummary:index' %}"><span>舆情上报系统</span></a>
-                        </div>
-                        <div class="login-form">
-                            {% if message %}
-                            <div class="alert alert-success">
+<div class="unix-login">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="login-content">
+                    <div class="login-logo">
+                        <a href="{% url 'datasummary:index' %}"><span>舆情上报系统</span></a>
+                    </div>
+                    <div class="login-form">
+                        {% if message %}
+                        <div class="alert alert-success">
+                            <font style="vertical-align: inherit;">
                                 <font style="vertical-align: inherit;">
-                                    <font style="vertical-align: inherit;">
-                                        {{ message }}
-                                    </font>
+                                    {{ message }}
                                 </font>
-                            </div>
-                            {% endif %}
-                            <h4>您发现的舆情</h4>
-                            <form class="form-login" method="post">
-                                <div class="form-group">
-                                    <label>舆情标题</label>
-                                    <input required class="form-control" placeholder="事件的主要概括" name="title" >
-                                </div>
-                                <div class="form-group">
-                                    <label>舆情内容</label> {% comment %} <input class="form-control" placeholder="事件的详细描述"> {% endcomment %}
-                                    <textarea required class="form-control" rows="3" placeholder="事件的详细描述" name="content" ></textarea>
-                                </div>
-                                <div class="form-group">
-                                    <label>舆情地点</label>
-                                    <input required class="form-control" placeholder="事件的发生地点" name="address" >
-                                </div>
-                                <div class="form-group">
-                                    <label>联系方式</label>
-                                    <input class="form-control" placeholder="您可以选择留下您的联系方式，以便于后续我们联系您。" name="contract" >
-                                </div>
-                                {% comment %}
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="checkbox">
-                                    <label>
-										<input type="checkbox"> Agree the terms and policy 
-									</label>
-                                </div> {% endcomment %}
-                                <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">即刻上报舆情</button> {% comment %}
-                                <div class="social-login-content">
-                                    <div class="social-button">
-                                        <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10"><i class="ti-facebook"></i>Register with facebook</button>
-                                        <button type="button" class="btn btn-primary bg-twitter btn-flat btn-addon m-t-10"><i class="ti-twitter"></i>Register with twitter</button>
-                                    </div>
-                                </div>
-                                <div class="register-link m-t-15 text-center">
-                                    <p>Already have account ? <a href="#"> Sign in</a></p>
-                                </div> {% endcomment %} {% csrf_token %}
-                            </form>
+                            </font>
                         </div>
+                        {% endif %}
+                        <h4>您发现的舆情</h4>
+                        <form class="form-login" method="post">
+                            <div class="form-group">
+                                <label>舆情标题</label>
+                                <input required class="form-control" placeholder="事件的主要概括" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label>舆情内容</label> {% comment %} <input class="form-control" placeholder="事件的详细描述"> {%
+                                endcomment %}
+                                <textarea required class="form-control" rows="3" placeholder="事件的详细描述"
+                                          name="content"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>舆情地点</label>
+                                <input required class="form-control" placeholder="事件的发生地点" name="address">
+                            </div>
+                            <div class="form-group">
+                                <label>联系方式</label>
+                                <input class="form-control" placeholder="您可以选择留下您的联系方式，以便于后续我们联系您。" name="contract">
+                            </div>
+                            {% comment %}
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="password" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Agree the terms and policy
+                                </label>
+                            </div>
+                            {% endcomment %}
+                            <button type="submit" class="btn btn-primary btn-flat m-b-30 m-t-30">即刻上报舆情</button>
+                            {% comment %}
+                            <div class="social-login-content">
+                                <div class="social-button">
+                                    <button type="button" class="btn btn-primary bg-facebook btn-flat btn-addon m-b-10">
+                                        <i class="ti-facebook"></i>Register with facebook
+                                    </button>
+                                    <button type="button" class="btn btn-primary bg-twitter btn-flat btn-addon m-t-10">
+                                        <i class="ti-twitter"></i>Register with twitter
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="register-link m-t-15 text-center">
+                                <p>Already have account ? <a href="#"> Sign in</a></p>
+                            </div>
+                            {% endcomment %} {% csrf_token %}
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>

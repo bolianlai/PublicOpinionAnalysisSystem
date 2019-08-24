@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     "use strict";
 
 
@@ -23,17 +23,14 @@
     Sidebar open close animated humberger icon
     ------------------------------------------------*/
 
-    $(".hamburger").on('click', function() {
+    $(".hamburger").on('click', function () {
         $(this).toggleClass("is-active");
     });
 
 
-
-
-
     /* TO DO LIST 
     --------------------*/
-    $(".tdl-new").on('keypress', function(e) {
+    $(".tdl-new").on('keypress', function (e) {
         var code = (e.keyCode ? e.keyCode : e.which);
         if (code == 13) {
             var v = $(this).val();
@@ -48,26 +45,22 @@
     });
 
 
-    $(".tdl-content a").on("click", function() {
+    $(".tdl-content a").on("click", function () {
         var _li = $(this).parent().parent("li");
-        _li.addClass("remove").stop().delay(100).slideUp("fast", function() {
+        _li.addClass("remove").stop().delay(100).slideUp("fast", function () {
             _li.remove();
         });
         return false;
     });
 
     // for dynamically created a tags
-    $(".tdl-content").on('click', "a", function() {
+    $(".tdl-content").on('click', "a", function () {
         var _li = $(this).parent().parent("li");
-        _li.addClass("remove").stop().delay(100).slideUp("fast", function() {
+        _li.addClass("remove").stop().delay(100).slideUp("fast", function () {
             _li.remove();
         });
         return false;
     });
-
-
-    
-
 
 
 })(jQuery);

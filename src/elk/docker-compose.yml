@@ -46,7 +46,7 @@ services:
     depends_on:
       - elasticsearch
 
-networks: 
+networks:
   default:
     external:
       name: bysj_network

@@ -28,7 +28,6 @@ function init_date() {
     var twoweeks = day + '.' + month + '.' + intwoweeks.getFullYear().toString().substr(2, 2);
 
 
-
     $('.datePicker').val(today);
     $('.twoweeks').val(twoweeks);
 }

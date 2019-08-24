@@ -25,7 +25,8 @@
                 </div>
             </div>
         </div>
-        {% comment %} <div class="col-lg-3">
+        {% comment %}
+        <div class="col-lg-3">
             <div class="card">
                 <div class="stat-widget-one">
                     <div class="stat-icon dib"><i class="ti-server color-pink border-pink"></i></div>
@@ -35,7 +36,8 @@
                     </div>
                 </div>
             </div>
-        </div> {% endcomment %}
+        </div>
+        {% endcomment %}
         <div class="col-lg-3">
             <div class="card">
                 <div class="stat-widget-one">
@@ -61,26 +63,26 @@
                     <div class="table-responsive">
                         <table class="table student-data-table m-t-20">
                             <thead>
-                                <tr>
-                                    <th>站点名称</th>
-                                    <th>爬虫名称</th>
-                                    <th>Redis Key</th>
-                                    <th>状态间隔</th>
-                                    <th>更新日期</th>
-                                    <th>状态</th>
-                                </tr>
+                            <tr>
+                                <th>站点名称</th>
+                                <th>爬虫名称</th>
+                                <th>Redis Key</th>
+                                <th>状态间隔</th>
+                                <th>更新日期</th>
+                                <th>状态</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                {% for n in all_node %}
-                                <tr>
-                                    <td>{{ n.site_name }}</td>
-                                    <td>{{ n.spider_name }}</td>
-                                    <td>{{ n.redis_key }}</td>
-                                    <td>{{ n.seconds }} </td>
-                                    <td>{{ n.datetime }}</td>
-                                    <td>{{ n.status }}</td>
-                                </tr>
-                                {% endfor %}
+                            {% for n in all_node %}
+                            <tr>
+                                <td>{{ n.site_name }}</td>
+                                <td>{{ n.spider_name }}</td>
+                                <td>{{ n.redis_key }}</td>
+                                <td>{{ n.seconds }}</td>
+                                <td>{{ n.datetime }}</td>
+                                <td>{{ n.status }}</td>
+                            </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>

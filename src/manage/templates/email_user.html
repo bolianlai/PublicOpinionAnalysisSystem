@@ -15,28 +15,28 @@
                     <div class="table-responsive">
                         <table class="table student-data-table m-t-20">
                             <thead>
-                                <tr>
-                                    <th>部门名称</th>
-                                    <th>部门归属</th>
-                                    <th>通知邮箱</th>
-                                    <th>注册时间</th>
-                                    <th>联系方式</th>
-                                    <th>联系地址</th>
-                                    <th>备注</th>
-                                </tr>
+                            <tr>
+                                <th>部门名称</th>
+                                <th>部门归属</th>
+                                <th>通知邮箱</th>
+                                <th>注册时间</th>
+                                <th>联系方式</th>
+                                <th>联系地址</th>
+                                <th>备注</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                {% for d in department %}
-                                <tr>
-                                    <td>{{ d.department_name }}</td>
-                                    <td>{{ d.department_owner.organization_name }}</td>
-                                    <td>{{ d.notice_email }}</td>
-                                    <td>{{ d.register_time }} </td>
-                                    <td>{{ d.contract|default_if_none:"-" }}</td>
-                                    <td>{{ d.address|default:"-" }} </td>
-                                    <td>{{ d.remark |default:"-"}}</td>
-                                </tr>
-                                {% endfor %}
+                            {% for d in department %}
+                            <tr>
+                                <td>{{ d.department_name }}</td>
+                                <td>{{ d.department_owner.organization_name }}</td>
+                                <td>{{ d.notice_email }}</td>
+                                <td>{{ d.register_time }}</td>
+                                <td>{{ d.contract|default_if_none:"-" }}</td>
+                                <td>{{ d.address|default:"-" }}</td>
+                                <td>{{ d.remark |default:"-"}}</td>
+                            </tr>
+                            {% endfor %}
                             </tbody>
                         </table>
                     </div>

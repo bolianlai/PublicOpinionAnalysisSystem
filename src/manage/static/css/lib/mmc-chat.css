@@ -101,7 +101,7 @@
 }
 
 #mmc-chat .status.online {
-    background-color: #42b72a ;
+    background-color: #42b72a;
 }
 
 #mmc-chat .status.offline {
@@ -229,7 +229,7 @@
     box-sizing: border-box;
     border: 5px solid #000;
     transform-origin: 0 0;
-    box-shadow: -3px 3px 3px 0rgba 0, 0, 0, 0.4;
+    box-shadow: -3px 3px 3px 0 rgba 0, 0, 0, 0.4;
     bottom: -10px;
     left: 6px;
     border-color: transparent transparent #f5f5f5 #F3F3F3;
@@ -305,11 +305,11 @@
 }
 
 #mmc-chat.inbox .box .box-body .options .video-cam {
-/*
-    background: url("../../images/video-cam.png") no-repeat;
-    height: 18px;
-    width: 32px;
-*/
+    /*
+        background: url("../../images/video-cam.png") no-repeat;
+        height: 18px;
+        width: 32px;
+    */
     margin-top: 2px;
 }
 
@@ -426,7 +426,7 @@
     box-sizing: border-box;
     border: 14px solid black;
     transform-origin: 0 0;
-    box-shadow: -3px 3px 3px 0rgba 0, 0, 0, 0.4;
+    box-shadow: -3px 3px 3px 0 rgba 0, 0, 0, 0.4;
 }
 
 #mmc-chat.inbox .box .box-body .message-scrooler .messages .message .body .seen {
@@ -614,14 +614,14 @@
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-header .tools {
-display: inline-block;
-float: right;
-text-align: right;
-width: 35%;
+    display: inline-block;
+    float: right;
+    text-align: right;
+    width: 35%;
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-header .tools span {
-font-size: 12px;
+    font-size: 12px;
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-header .tools span:hover {
@@ -642,11 +642,11 @@ font-size: 12px;
 
 #mmc-chat .chat-box ul.boxs li.box .box-header .tools .close {
     color: #fff;
-/*    font-size: 14px;*/
+    /*    font-size: 14px;*/
     /*height: 20px;*/
     opacity: 1;
     position: relative;
-/*    top: -10px;*/
+    /*    top: -10px;*/
     float: none;
 }
 
@@ -662,7 +662,7 @@ font-size: 12px;
 
 #mmc-chat .chat-box ul.boxs li.box .box-footer .item {
     float: left;
-    
+
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-footer .icons .smile-ico {
@@ -697,7 +697,7 @@ font-size: 12px;
     box-sizing: border-box;
     border: 5px solid #000;
     transform-origin: 0 0;
-    box-shadow: -3px 3px 3px 0rgba 0, 0, 0, 0.4;
+    box-shadow: -3px 3px 3px 0 rgba 0, 0, 0, 0.4;
     bottom: -10px;
     left: 6px;
     border-color: transparent transparent #f5f5f5 #F3F3F3;
@@ -752,13 +752,13 @@ font-size: 12px;
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-body .status {
-border-radius: 10px;
-height: 8px;
-left: 5px;
-position: absolute;
-top: -18px;
-width: 8px;
-z-index: 10;
+    border-radius: 10px;
+    height: 8px;
+    left: 5px;
+    position: absolute;
+    top: -18px;
+    width: 8px;
+    z-index: 10;
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-body .options {
@@ -779,20 +779,20 @@ z-index: 10;
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-body .options .video-cam {
-/*
-    background: url("../../images/video-cam.png") no-repeat;
-    height: 18px;
-    width: 32px;
-    margin-top: 2px;
-*/
+    /*
+        background: url("../../images/video-cam.png") no-repeat;
+        height: 18px;
+        width: 32px;
+        margin-top: 2px;
+    */
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-body .options .person-add {
-/*
-    background: url("../../images/chat-person-add.png") no-repeat;
-    height: 24px;
-    width: 29px;
-*/
+    /*
+        background: url("../../images/chat-person-add.png") no-repeat;
+        height: 24px;
+        width: 29px;
+    */
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-body .options .group {
@@ -902,7 +902,7 @@ z-index: 10;
     box-sizing: border-box;
     border: 14px solid black;
     transform-origin: 0 0;
-    box-shadow: -3px 3px 3px 0rgba 0, 0, 0, 0.4;
+    box-shadow: -3px 3px 3px 0 rgba 0, 0, 0, 0.4;
 }
 
 #mmc-chat .chat-box ul.boxs li.box .box-body .message-scrooler .messages .message .body .seen {

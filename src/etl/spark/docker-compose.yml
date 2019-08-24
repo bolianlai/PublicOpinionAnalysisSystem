@@ -18,7 +18,7 @@ services:
     environment:
       - "SPARK_MASTER=spark://spark-master:7077"
 
-networks: 
+networks:
   default:
     external:
       name: bysj_network

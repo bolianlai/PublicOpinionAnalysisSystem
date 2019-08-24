@@ -1,5 +1,5 @@
 version: '3'
-services:  
+services:
   cookiespool:
     image: bolianlai/cookiespool:latest
     container_name: cookiespool
@@ -15,8 +15,8 @@ services:
       - 114.114.114.114
     volumes:
       - ./account:/app/account
-  
-networks: 
+
+networks:
   default:
     external:
       name: bysj_network

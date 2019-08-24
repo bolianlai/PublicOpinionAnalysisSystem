@@ -5,7 +5,7 @@ services:
     hostname: zookeeper
     container_name: zookeeper
     ports:
-     - 2281:2181
+      - 2281:2181
   kafka:
     image: bolianlai/bysj_kafka_2019:latest
     hostname: kafka
@@ -82,7 +82,7 @@ services:
   #   volumes:
   #     - /var/run/docker.sock:/var/run/docker.sock
 
-networks: 
+networks:
   default:
     external:
       name: bysj_network
